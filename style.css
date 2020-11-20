@@ -1,0 +1,354 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.title{
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+html {
+  font-size: 100%;
+  font-family: 'Ubuntu', Arial, sans-serif;
+}
+
+body {
+  background: #e0e0e0;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.keyboard {
+  width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+  background: #2c2c2c;
+  border-radius: 0 0 30px  30px;
+  display:none
+}
+.keyboard__unhidden{
+  display:flex
+}
+
+.keyboard__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.keyboard__row:last-child{
+  margin-bottom: 0px;
+}
+.keyboard__key {
+  height: 45px;
+  width: 45px;
+  border-radius: 50px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 25px;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  vertical-align: top;
+  padding: 0.3vw;
+  border: 2px solid whitesmoke;
+}
+
+
+.keyboard__key.active{
+  height: 39px;
+  width: 39px;
+  margin:3px;
+
+}
+[data-fn="false"] .letter {
+  font-size: 25px;
+}
+
+[data-fn="false"].active .letter {
+  font-size: 18px;
+}
+
+[data-fn="true"] {
+  background:rgba(194, 241, 122, 0.8);
+}
+
+[data-fn="true"]  .letter {
+  font-size: 20px;
+  color:#2c2c2c;
+}
+[data-fn="true"].active .letter {
+  font-size: 16px;
+  color: white;
+}
+/*размеры функциональных кнопок!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+[data-code="Voice"] .sub,
+[data-code="LangChange"] .sub,
+[data-code="Sound"].sub{
+  display: none;
+}
+[data-code="ControlLeft"] , 
+[data-code="AltLeft"],
+[data-code="ShiftLeft"],
+[data-code="Enter"],
+[data-code="Tab"] {
+  width:90px;
+}
+
+[data-code="Voice"],
+[data-code="LangChange"] ,
+[data-code="Sound"]{
+  width:70px;
+  background:rgba(194, 241, 122, 0.8);
+}
+[data-code="LangChange"].active,
+[data-code="Voice"].active,
+[data-code="Sound"].active{
+  width:64px;
+  margin: 3px;
+  background:rgba(241, 219, 122, 0.6);
+}
+
+
+
+[data-code="ControlLeft"].active , 
+[data-code="AltLeft"].active,
+[data-code="ShiftLeft"].active,
+[data-code="Enter"].active,
+[data-code="Tab"].active{
+  width:84px;
+  margin: 3px;
+  background:rgba(241, 219, 122, 0.6);
+}
+
+
+[data-code="CapsLock"] ,
+[data-code="Backspace"]
+{
+  width:110px;
+}
+
+[data-code="CapsLock"].active ,
+[data-code="Backspace"].active
+{
+  width:104px;
+  margin: 3px;
+  background:rgba(241, 219, 122, 0.6);
+}
+
+
+[data-code="Space"] {
+
+  width:420px;
+}
+[data-code="Space"].active {
+  width:414px;;
+  margin: 3px;
+  background:rgba(241, 219, 122, 0.6);
+}
+
+
+
+[data-code="ArrowLeft"],
+[data-code="ArrowUp"],
+[data-code="ArrowDown"],
+[data-code="ArrowRight"] {
+  background: rgb(75, 108, 253);
+  width:90px;
+}
+[data-code="ArrowLeft"].active,
+[data-code="ArrowUp"].active,
+[data-code="ArrowDown"].active,
+[data-code="ArrowRight"].active {
+  background: rgb(75, 108, 253,0.9);
+  width:84px;
+  margin: 3px;
+}
+/*размеры функциональных кнопок!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+[data-fn="true"] .active {
+  background:rgba(241, 219, 122, 0.6);
+}
+
+.letter {
+  font-size: 25px;
+  width: 100%;
+  align-self: center;
+
+}
+
+.subtitle, .hint {
+  color: rgb(102, 102, 102);
+  cursor: pointer;
+}
+
+textarea.output {
+  height: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.sub {
+  width: 100%;
+  color: #9393c5;
+  text-align: center;
+}
+.sub-active:empty {
+display: none;
+}
+.sub:empty {
+  display: none;
+  }
+.sub.sub-active:not(:empty) {
+  color: #ffffff;
+}
+
+.sub.sub-active:not(:empty) ~ .letter.sub-inactive {
+  color: #68688a;
+  text-align: center;
+  width: 100%;
+  transform-origin: center;
+}
+
+
+
+@media (max-width: 950px) {
+
+  .keyboard {
+    width:96vw ;
+    padding: 10px;
+  }
+  .keyboard__key {
+    height:5vw;
+    width:5vw;}
+    .keyboard__row {
+      height:5.5vw;
+
+    }
+
+    .keyboard__key.active{
+      height:4.2vw;
+      width:4.2vw;
+      margin: 0.4vw;
+    }
+/*размеры функциональных кнопок!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+[data-code="ControlLeft"] , 
+[data-code="AltLeft"],
+[data-code="ShiftLeft"],
+[data-code="Enter"],
+[data-code="Tab"] {
+  width:9vw;
+}
+
+[data-code="Voice"],
+[data-code="LangChange"] ,
+[data-code="Sound"]{
+  width:7vw;
+}
+[data-code="LangChange"].active,
+[data-code="Voice"].active,
+[data-code="Sound"].active{
+  width:6.4vw;
+  margin:0.3vw;
+}
+
+
+
+[data-code="ControlLeft"].active , 
+[data-code="AltLeft"].active,
+[data-code="ShiftLeft"].active,
+[data-code="Enter"].active,
+[data-code="Tab"].active{
+  width:8.4vw;
+  margin: 0.3vw;
+}
+
+
+[data-code="CapsLock"] ,
+[data-code="Backspace"]
+{
+  width:11vw;
+}
+
+[data-code="CapsLock"].active ,
+[data-code="Backspace"].active
+{
+  width:10.4vw;
+  margin: 0.3vw;
+}
+
+
+[data-code="Space"] {
+
+  width:42vw;
+}
+[data-code="Space"].active {
+  width:41.4vw;
+  margin: 0.3vw;
+}
+
+
+
+[data-code="ArrowLeft"],
+[data-code="ArrowUp"],
+[data-code="ArrowDown"],
+[data-code="ArrowRight"] {
+  background: rgb(75, 108, 253);
+  width:9vw;
+}
+[data-code="ArrowLeft"].active,
+[data-code="ArrowUp"].active,
+[data-code="ArrowDown"].active,
+[data-code="ArrowRight"].active {
+  background: rgb(75, 108, 253,0.9);
+  width:8.4vw;
+  margin: 0.3vw;
+}
+/*размеры функциональных кнопок!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+[data-fn="true"]  .letter {
+  font-size: 2vw;
+
+}
+[data-fn="true"].active  .letter {
+  font-size: 1.6vw;
+
+}
+textarea.output {
+  width: 97vw;
+}
+[data-fn="false"] .letter {
+  font-size: 2.5vw;
+}
+
+[data-fn="false"].active .letter {
+  font-size: 1.8vw;
+}
+.keyboard__key {
+
+  font-size: 2.5vw;
+
+}
+}
+
